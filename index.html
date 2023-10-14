@@ -332,7 +332,7 @@
                 <form class="footer-subscription-form" name="subscribe-form" autocomplete="on">
                     <label class="footer-subscription-label">
                         <span class="footer-subscription-text">Subscribe</span>
-                        <input class="footer-subscription-input" type="email" name="subscription-email" placeholder="E-mail">
+                        <input class="footer-subscription-input" type="email" name="subscription-email" placeholder="E-mail" required>
                     </label>
                     <button class="footer-subscription-button" type="submit">
                         <span>Subscribe</span>
@@ -345,11 +345,12 @@
           </div> 
         </footer>
 
-        <div class="modal is-hidden" data-modal>
-            <div class="modal-content">
-                <h2 class="modal-heading">Leave your information and we'll call you back</h2>
+           <div class="backdrop is-hidden" data-modal>     
+            <div class="modal">
+                <div class="modal-content">
+                    <h2 class="modal-heading">Leave your information and we'll call you back</h2>
 
-                <form class="modal-signup-form" name="signup-form" autocomplete="on">
+                    <form class="modal-signup-form" name="signup-form" autocomplete="on">
                     <label class="modal-form-label" for="full_name">
                         <span class="form-label-text">Name</span>
                         <input class="form-label-input" type="text" id="full-name" required>
@@ -384,18 +385,22 @@
                         <svg class="modal-checkbox-icon" width="16" height="16">
                             <use href="./images/icons.svg#checkbox"></use>
                         </svg>
-                        I accept the terms and conditions of the Privacy Policy
+                        <span class="modal-form-agreement-description">
+                             I accept the terms and conditions of the
+                            <a class="modal-form-agreement-link" href="">Privacy Policy</a>
+                        </span>
                     </label>
                     <button class="modal-form-button" type="submit">Send</button>
-                </form>
+                    </form>
 
-                <button class="modal-close" data-modal-close>
-                <svg class="modal-close-icon" width="16" height="16">
+                    <button class="modal-close" data-modal-close>
+                    <svg class="modal-close-icon" width="16" height="16">
                     <use href="./images/icons.svg#x mode"></use>
-                </svg>
-                </button>
+                    </svg>
+                    </button>
+                </div>
             </div>
-        </div>    
+           </div>     
 
 
         <script src="./js/modal.js"></script>

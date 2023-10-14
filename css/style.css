@@ -113,6 +113,9 @@ button {
     width: 100%;
 }
 
+.menu-active {
+    color: var(--ocean);
+}
 .main-header-list-item:hover .main-header-menu-list-item-link {
     color: var(--ocean);
 }
@@ -753,19 +756,27 @@ portfoliofoot-form-container{
     background: var(--dairy);
 }
 
-.modal.is-hidden {
+.backdrop {
+    background: rgba(46, 47, 66, 0.4);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.backdrop.is-hidden {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;    
 }
 
-.modal.is-hidden .modal-content{
+.backdrop.is-hidden .modal-content{
     transform: scale(0.5);
 }
 
 .modal-content{
-    width: 528px;
-    height: 580px;
+    width: 408px;
     background: var(--white);
     border-radius: 4px;
     padding: 72px 24px 24px;
@@ -773,6 +784,22 @@ portfoliofoot-form-container{
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
     transform: none;
     transition: transform var(--transition-duration);
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 408px;
+    height: 584px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 2px 1px 0px rgba(0, 0, 0, 0.20);
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--dairy);
 }
 
 .modal-close {
@@ -882,9 +909,7 @@ portfoliofoot-form-container{
 }
 
 .form-label-input, .form-label-textarea {
-
     font-size: 12px;
-    font-weight: 500;
     line-height: 14px;
     letter-spacing: 0.48px;
     display: flex;
@@ -893,7 +918,7 @@ portfoliofoot-form-container{
     padding: 11px 16px 11px 40px;
     outline: none;
     border-radius: 4px;
-    border: 1px solid var(--navybluemodal, rgba(46, 47, 66, 0.40));
+    border: 1px solid var(--lightslate);
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -911,12 +936,13 @@ portfoliofoot-form-container{
     border: 1px solid var(--iris);
 }
 
-.form-label-input:hover + .form-input-icon {
+.form-label-input:hover + .form-input-icon, .form-label-input:focus + .form-input-icon {
     fill: var(--iris);
 }
 
 .form-label-textarea {
     resize: none;
+    padding: 11px 16px;
 }
 
 .modal-checkbox-icon {
@@ -943,9 +969,10 @@ portfoliofoot-form-container{
     margin-bottom: 16px;
 }
 
-.modal-form-agreement-text {
+.modal-form-agreement-description {
     color: var(--lightslate);
     font-size: 12px;
+    font-style: normal;
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0.40px;
@@ -957,6 +984,10 @@ portfoliofoot-form-container{
     justify-content: flex-start;
     margin-bottom: 24px;
     cursor: pointer;
+}
+
+.modal-form-agreement-link {
+    color: var(--iris);
 }
 
 .modal-form-button {
@@ -975,6 +1006,7 @@ portfoliofoot-form-container{
     cursor: pointer;
     display: block;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 169px;
 }
 
 .modal-form-button:hover {
